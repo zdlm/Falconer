@@ -1,5 +1,21 @@
 extends layout
 
+block header
+  .header
+    h1= title
 block content
-  h1= title
-  p Welcome to #{title}
+  .content(ng-controller='indexController')
+    button(ng-click='getData()') get
+    button(ng-click='postData()') post
+    button(ng-click='getOne("8a1330c93e31b8af013e360d6a2106ea")') get one
+    button(ng-click='updateOne("8a1330c93e31b8af013e360d6a2106ea")') update one
+    button(ng-click='deleteOne("8a1330c93e31b8af013e360d6a2106ea")') delete one
+    p {{publishingData}}
+
+block footer
+  .footer
+    h5 leo's falcon social test
+block script
+  script(src='/javascripts/libs/jquery.min.js')
+  script(src='/javascripts/libs/bootstrap.min.js')
+  script(src='/javascripts/newFalconer/components/indexController.js')

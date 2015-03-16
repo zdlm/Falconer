@@ -1,7 +1,13 @@
 doctype html
-html
+html(ng-app="newFalconer")
   head
     title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/libs/angular.min.js')
+    script(src='/javascripts/libs/socket.min.js')
   body
+    block header
     block content
+    block footer
+    block script

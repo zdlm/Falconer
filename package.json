@@ -1,0 +1,28 @@
+{
+  "name": "Falconer",
+  "version": "0.0.0",
+  "description": "Install Express npm install -g express // global install",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zdlm/Falconer"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zdlm/Falconer/issues"
+  },
+  "homepage": "https://github.com/zdlm/Falconer",
+  "dependencies": {
+    "angular-websocket": "^1.0.9",
+    "bootstrap": "^3.3.2",
+    "express": "^4.12.2",
+    "follow-redirects": "0.0.3",
+    "node-uuid": "^1.4.3",
+    "socket.io": "^1.3.5",
+    "underscore": "^1.8.2"
+  }
+}
