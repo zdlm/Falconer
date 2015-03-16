@@ -49,6 +49,8 @@ block content
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Close
             button.btn.btn-primary(type='button' data-dismiss='modal' ng-click='save(publish)') Save changes
+  div(ng-controller='graphCtrl')
+    nvd3-line-chart(data='exampleData', showxaxis='true', showyaxis='true', tooltips='true', interactive='true')
 
 
 block footer
@@ -57,6 +59,9 @@ block footer
 block script
   script(src='/javascripts/libs/jquery.min.js')
   script(src='/javascripts/libs/bootstrap.min.js')
+  script(src='/javascripts/libs/d3.js')
+  script(src='/javascripts/libs/nv.d3.js')
+  script(src='/javascripts/libs/angularjs-nvd3-directives.min.js')
   script(src='/javascripts/libs/socket.io.js')
   script(src='/javascripts/libs/underscore-min.js')
   script(src='/javascripts/newFalconer/app.js')
