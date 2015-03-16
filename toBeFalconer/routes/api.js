@@ -1,16 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var dataPath = require("../constants").PATHS;
-var opResult = require("../constants").RESULT;
 var http = require('follow-redirects').http;
 var uuid = require('node-uuid');
 var _ = require('underscore');
-var socketIO = require("socket.io");
-var publishing = [];
+
+var publishing = null;
+
+var socketio = require("socket.io");
 
 router.socket = null;
 router.socketServer = function(server){
-    router.io = socketIO.listen(server);
+    router.io = socketio.listen(server);
 };
 
 
@@ -39,7 +40,7 @@ router.route('/publishing')
     })
     .get(function(req,res){
         //return publishing, if the publishing is not null;
-        if(publishing.length > 0){
+        if(publishing){
             res.json(publishing);
         }else{
             //get the new data from the api

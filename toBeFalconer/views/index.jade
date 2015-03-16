@@ -4,13 +4,52 @@ block header
   .header
     h1= title
 block content
-  .content(ng-controller='indexController')
-    button(ng-click='getData()') get
-    button(ng-click='postData()') post
-    button(ng-click='getOne("8a1330c93e31b8af013e360d6a2106ea")') get one
-    button(ng-click='updateOne("8a1330c93e31b8af013e360d6a2106ea")') update one
-    button(ng-click='deleteOne("8a1330c93e31b8af013e360d6a2106ea")') delete one
-    p {{publishingData}}
+  .content(ng-controller='publishingCtrl')
+    button(class="btn btn-primary" data-toggle="modal" data-target="#publishModal" ng-click="showPublishing()") create
+    table(class='table table-bordered default-margin-top')
+      tr
+        th status
+        th media fileName
+        th content message
+        th content network
+        th edit
+        th delete
+      tr(ng-repeat='p in publishs')
+        td {{p.status}}
+        td {{p.content.media.fileName}}
+        td {{p.content.message}}
+        td {{p.content.network}}
+        td
+          button(class='btn btn-primary' data-toggle="modal" data-target="#publishModal" ng-click='showPublishing(p)') edit
+        td
+          button(class='btn btn-primary' ng-click='deleteOne(p.id)') delete
+
+    #publishModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#myModalLabel.modal-title Modal title
+          .modal-body
+            form
+              .form-group
+                label(for='status') status
+                input#status.form-control(placeholder='status', ng-model='publish.status')
+              .form-group
+                label(for='content_media_fileName') media fileName
+                input#content_media_fileName.form-control(placeholder='media fileName', ng-model='publish.content.media.fileName')
+              .form-group
+                label(for='content_message') content message
+                input#content_message.form-control(placeholder='content message', ng-model='publish.content.message')
+              .form-group
+                label(for='content_network') content network
+                input#content_message.form-control(placeholder='content network', ng-model='publish.content.network')
+
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary(type='button' data-dismiss='modal' ng-click='save(publish)') Save changes
+
 
 block footer
   .footer
@@ -18,4 +57,9 @@ block footer
 block script
   script(src='/javascripts/libs/jquery.min.js')
   script(src='/javascripts/libs/bootstrap.min.js')
-  script(src='/javascripts/newFalconer/components/indexController.js')
+  script(src='/javascripts/libs/socket.io.js')
+  script(src='/javascripts/libs/underscore-min.js')
+  script(src='/javascripts/newFalconer/app.js')
+  script(src='/javascripts/newFalconer/services.js')
+  script(src='/javascripts/newFalconer/models.js')
+  script(src='/javascripts/newFalconer/controllers.js')
