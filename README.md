@@ -1,7 +1,7 @@
 # Falconer
 
 
-Setup up a webapp with nodejs and angularjs. (http://nodejs.org/, https://angularjs.org/ )
+### Setup up a webapp with nodejs and angularjs. (http://nodejs.org/, https://angularjs.org/ )###
 1. follow the http://nodejs.org/ document quick start
 
 2. check the nodejs web server best practice
@@ -9,7 +9,6 @@ Setup up a webapp with nodejs and angularjs. (http://nodejs.org/, https://angula
 3. follow the express document http://expressjs.com/ start
 
 4. install angularjs https://angularjs.org/
-
 
 
 Use Less for all css rules ( http://lesscss.org/)
