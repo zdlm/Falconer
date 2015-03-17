@@ -48,9 +48,10 @@ block content
 
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Close
-            button.btn.btn-primary(type='button' data-dismiss='modal' ng-click='save(publish)') Save changes
+            button.btn.btn-primary(type='button', data-dismiss='modal' ng-click='save(publish)') Save changes
   div(ng-controller='graphCtrl')
-    nvd3-line-chart(data='exampleData', showxaxis='true', showyaxis='true', tooltips='true', interactive='true')
+    nvd3-multi-bar-chart#exampleId(data='graphData', width="1024", height="400", showxaxis='false', showyaxis='true')
+      svg
 
 
 block footer

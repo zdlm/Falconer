@@ -6,6 +6,9 @@ var uuid = require('node-uuid');
 var _ = require('underscore');
 
 var publishing = null;
+var reachData = null;
+var start = 0;
+var myInterval = null;
 
 var socketio = require("socket.io");
 
@@ -140,5 +143,84 @@ var fetch = function(url, callback){
         })
     });
 };
+
+//data transfer
+var toGraphData = function(original){
+    var post_impressions = {
+            key: "post_impressions",
+            values:[]
+        },
+        post_impressions_organic = {
+            key: "post_impressions_organic",
+            values:[]
+        },
+        post_impressions_viral = {
+            key: "post_impressions_viral",
+            values:[]
+        },
+        post_impressions_paid = {
+            key: "post_impressions_paid",
+            values:[]
+        };
+    if(!original){
+        return [];
+    }
+    _.each(original,function(item, i){
+        if(item && item["post_impressions"] && item["post_impressions"][0]
+            && item["post_impressions_organic"] && item["post_impressions_organic"][0]
+            && item["post_impressions_viral"] && item["post_impressions_viral"][0]
+            && item["post_impressions_paid"] && item["post_impressions_paid"][0]){
+            var post_impressions_values = [i.toString(), parseInt(item["post_impressions"][0].value)];
+            post_impressions.values.push(post_impressions_values);
+            var post_impressions_organic_values = [i.toString(), parseInt(item["post_impressions"][0].value)];
+            post_impressions_organic.values.push(post_impressions_organic_values);
+            var post_impressions_viral_values = [i.toString(), parseInt(item["post_impressions_viral"][0].value)];
+            post_impressions_viral.values.push(post_impressions_viral_values);
+            var post_impressions_paid_values = [i.toString(), parseInt(item["post_impressions_paid"][0].value)];
+            post_impressions_paid.values.push(post_impressions_paid_values);
+        }
+    });
+    return [post_impressions, post_impressions_organic, post_impressions_viral, post_impressions_paid];
+};
+
+router.route("/graph")
+    .get(function(req, res){
+
+        getGraphData(function(data){
+            res.json({
+                status: 'ok',
+                message: 'got ten data!'
+            });
+        });
+    });
+
+var getGraphData = function(callback){
+    fetch(dataPath.HTTP_HOST + dataPath.HTTP_DATA_API, function(result){
+        if(result.data){
+            reachData = JSON.parse(result.data).response;
+            callback(getTenData());
+        }else{
+            res.json({
+                data:[],
+                status: 'no',
+                message: 'can not get data!'
+            })
+        }
+    });
+};
+
+var getTenData = function(){
+    if(start + 10 > reachData.length){
+        start = 0;
+    }else{
+        start = start + 10;
+    }
+    var data = reachData.slice(start, start + 10);
+    var result = toGraphData(data);
+    router.io.sockets.emit('graphDataComing', result);
+    if(!myInterval){
+        myInterval = setInterval(getTenData, 10000);
+    }
+}
 
 module.exports = router;
