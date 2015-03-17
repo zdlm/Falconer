@@ -30,7 +30,7 @@ Make a graph page with a graph rendering the data in the reach graph (using d3.j
 3. I could not understand the reach data timestamp, the same time got several values. so I change the timestamp to index to show in the graph
 
 Make a websocket impl. and add data points to the reach graph in real time
-1. every ten second the server send 10 messages by socket
+1. every 5 seconds the server send 10 messages by socket
 2. I don't add more data
 
 Enable the project to be run from “node app.js” on localhost:3000

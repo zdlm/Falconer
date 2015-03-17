@@ -219,7 +219,7 @@ var getTenData = function(){
     var result = toGraphData(data);
     router.io.sockets.emit('graphDataComing', result);
     if(!myInterval){
-        myInterval = setInterval(getTenData, 10000);
+        myInterval = setInterval(getTenData, 5000);
     }
 }
 
