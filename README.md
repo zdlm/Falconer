@@ -3,64 +3,64 @@
 
 **Setup up a webapp with nodejs and angularjs. (http://nodejs.org/, https://angularjs.org/ )**
 
-1. follow the http://nodejs.org/ document quick start
+1. Follow the http://nodejs.org/ document and quick start
 
-2. check the nodejs web server best practice
+2. Check the nodejs as web server which is the best practice
 
-3. follow the express document http://expressjs.com/ start
+3. Follow the express document(http://expressjs.com/)
 
-4. install angularjs https://angularjs.org/
+4. Install angularjs from https://angularjs.org/
 
 
 **Use Less for all css rules ( http://lesscss.org/)**
 
-1. install less http://lesscss.org/
+1. Install less(http://lesscss.org/)
 
 2. I use bootstrap, so my less code is less
 
 
 **Create CRUD REST endpoints for providing json blobs above**
 
-1. search the nodejs restful api best practice
+1. Search the nodejs restful api which is the best practice
 
-2. coding publishing rest api in /routes/api.js
+2. Coding publishing rest api at /routes/api.js
 
-3. api list are:/api/publishing(post,get), /api/publishing/:id(get,put,delete)
+3. Api list:/api/publishing(post,get), /api/publishing/:id(get,put,delete)
 
 
 **Render the publishing item and enable the ui to create, update and delete items (no validation)**
 
-1. only modify some fields for update and create
+1. Only modify some fields when update and create publishing
 
-2. create call the socket
+2. After create publishing, the server use socket to communicate with the client
 
-3. update and delete handled by front-end and backend
+3. Update and deletion will be operated by front-end and backend at the same time
 
 
 **Make a websocket impl. and when a new publication is created it pushes the data to the ui in real time.**
 
-1. search the nodejs socket, and use http://socket.io/
+1. Search the nodejs socket(http://socket.io/)
 
 
 **Make a graph page with a graph rendering the data in the reach graph (using d3.js)**
 
-1. search the angularjs and d3.js, got the https://github.com/angularjs-nvd3-directives/angularjs-nvd3-directives
+1. Search the angularjs and d3.js, got the solution(https://github.com/angularjs-nvd3-directives/angularjs-nvd3-directives)
 
 2. I change the reach data schema to match the nvd3Chart data source
 
-3. I could not understand the reach data timestamp, the same time got several values. so I change the timestamp to index to show in the graph
+3. I could not understand the reach data timestamp. Why several values were showed at the same time. I change the timestamp to index to show in the graph
 
 
 **Make a websocket impl. and add data points to the reach graph in real time**
 
-1. every 5 seconds the server send 10 messages by socket
+1. Every 5 seconds the server send 10 messages by socket
 
-2. I don't add more data
+2. I didn't add more data to the reach graph
 
 
 **Enable the project to be run from “node app.js” on localhost:3000**
 
-1. clone the code https://github.com/zdlm/Falconer
+1. git clone https://github.com/zdlm/Falconer
 
 2. npm install
 
