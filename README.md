@@ -1,10 +1,12 @@
 # Falconer
-----
-*Setup up a webapp with nodejs and angularjs. (http://nodejs.org/, https://angularjs.org/ )
-*#follow the http://nodejs.org/ document quick start
-*#check the nodejs web server best practice
-*#follow the express document http://expressjs.com/ start
-*#install angularjs https://angularjs.org/
+
+
+Setup up a webapp with nodejs and angularjs. (http://nodejs.org/, https://angularjs.org/ )
+.follow the http://nodejs.org/ document quick start
+.check the nodejs web server best practice
+.follow the express document http://expressjs.com/ start
+.install angularjs https://angularjs.org/
+
 
 Use Less for all css rules ( http://lesscss.org/)
 1.install less http://lesscss.org/
