@@ -16,7 +16,7 @@
 
 1. install less http://lesscss.org/
 
-2.I use bootstrap, so my less code is less
+2. I use bootstrap, so my less code is less
 
 
 **Create CRUD REST endpoints for providing json blobs above**
