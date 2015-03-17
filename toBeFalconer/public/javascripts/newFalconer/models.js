@@ -2,6 +2,7 @@
  * Created by leo on 3/17/15.
  */
 
+//publish model
 angular.module("newFalconer.models", [])
     .factory("model", function () {
         var publish = {},

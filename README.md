@@ -2,13 +2,14 @@
 
 --------------------------------------
 Setup up a webapp with nodejs and angularjs. (http://nodejs.org/, https://angularjs.org/ )
-1.follow the http://nodejs.org/ documents quick start
+1.follow the http://nodejs.org/ document quick start
 2.check the nodejs web server best practice
 3.follow the express document http://expressjs.com/ start
 4.install angularjs https://angularjs.org/
 
 Use Less for all css rules ( http://lesscss.org/)
 1.install less http://lesscss.org/
+2.I use bootstrap, so my less code is less
 
 Create CRUD REST endpoints for providing json blobs above
 1.search the nodejs restful api best practice

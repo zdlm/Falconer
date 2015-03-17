@@ -144,7 +144,7 @@ var fetch = function(url, callback){
     });
 };
 
-//data transfer
+//data transfer, generate the data resource
 var toGraphData = function(original){
     var post_impressions = {
             key: "post_impressions",
